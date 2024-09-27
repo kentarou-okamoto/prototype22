@@ -64,7 +64,7 @@ def main():
       
            #千円の場合100の単位で切り捨て
            if unit =='千円':
-              df['f_vle'] = df['f_vle'].map(lambda x: x/10 )  
+              df['f_vle'] = df['f_vle'].map(lambda x: x*0.01 )  
               
       
       
