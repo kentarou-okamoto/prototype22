@@ -26,8 +26,8 @@ def main():
         text_area = st.text_area('Text Area', sample_text , height=200)
         submitted = st.form_submit_button("文字列を変換")
      
-    if submitted:
-       with st.spinner('processiong...'):
+   if submitted:
+      with st.spinner('processiong...'):
            time.sleep(3)
            hoge(txt)
            st.write(txt)
