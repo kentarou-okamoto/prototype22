@@ -1,7 +1,7 @@
 import re
 import time
-import streamlit as st
 import unicodedata
+import streamlit as st
 import pandas as pd
 
 def hoge(txt):
@@ -31,7 +31,7 @@ def main():
    if submitted:
       with st.spinner('processiong...'):
            time.sleep(3)
-           txt=unicodedata.normalize('NFKC', txt) #UNICODE変換：全角を半角に
+           txt=unicodedata.normalize('NFKC', text_area ) #UNICODE変換：全角を半角に
            s1 =txt.replace(',','')  #数字のカンマを除去
            st.write(s1)
 
