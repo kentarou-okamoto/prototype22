@@ -1,6 +1,8 @@
-import streamlit as st
+import re
 import time
-
+import streamlit as st
+import unicodedata
+import pandas as pd
 
 def hoge(txt):
     st.write(len(txt))
