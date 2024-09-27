@@ -54,7 +54,7 @@ def main():
            #千円の場合100の単位で切り捨て
            if unit =='千円':
            
-              df['f3'] = df['f3'].astype('int').apply(lambda x: (x/100) )  
+              df['f3'] = df['f3'].apply(lambda x:x/100)  
               
               #df['f2'] = df['f2'].apply(lambda x: (x/100) )  
               #df['f3'] = df['f3'].apply(lambda x: (x//100) )  
