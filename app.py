@@ -50,7 +50,9 @@ def main():
            st.table(df)
 
            col1, col2 = st.columns(2)
+           col1.write("勘定科目群")
            col1.dataframe(df["f1"], hide_index=False)
+           col2.write("項目数値群")
            col2.dataframe(df["f3"], hide_index=False)
            
 
