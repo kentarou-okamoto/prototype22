@@ -32,12 +32,14 @@ def main():
    # テキストエリア
    with st.form("my_form", clear_on_submit=False):
         text_area = st.text_area('Text Area', sample_text , height=200)
-        genre = st.radio("単位", ('百万円', '千円'), horizontal=True)
-        submitted = st.form_submit_button("文字列を変換")
+        col1, col2, col3 = st.columns(3)
+        genre = col1.radio("単位", ('百万円', '千円'), horizontal=True)
+        submitted = col2.form_submit_button("文字列を変換")
      
    if submitted:
       with st.spinner('processiong...'):
            time.sleep(3)
+           st.write(f"{genre}")
            txt=unicodedata.normalize('NFKC', text_area ) #UNICODE変換：全角を半角に
            s1 =txt.replace(',','')  #数字のカンマを除去
            #st.write(s1)
@@ -53,11 +55,11 @@ def main():
            df.index = df.index + 1
            st.table(df)
 
-           col1, col2 = st.columns(2)
-           col1.write("勘定科目群")
-           col1.dataframe(df["f1"], hide_index=False)
-           col2.write("項目数値群")
-           col2.dataframe(df["f3"], hide_index=False)
+           col4 , col5 = st.columns(2)
+           col4.write("勘定科目群")
+           col4.dataframe(df["f1"], hide_index=False)
+           col5.write("項目数値群")
+           col5.dataframe(df["f3"], hide_index=False)
            
 
 
