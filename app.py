@@ -64,7 +64,7 @@ def main():
       
            df['f_vle'] = df['f_vle'].replace('-', '')
            df['f_vle'] = df['f_vle'].replace('△', '-')
-           df['f1'] = df['f_vle'].replace('1株', '１株')
+           df['f1'] = df['f1'].replace('1株', '１株')
            
            #千円の場合100の単位で切り捨て
            if unit =='千円':
