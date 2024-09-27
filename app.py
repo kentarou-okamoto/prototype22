@@ -63,7 +63,7 @@ def main():
            df.index = df.index + 1
       
            df['f_vle'] = df['f_vle'].replace('-', '')
-           df['f_vle'] = df['f_vle'].replace('△[0-9]', '-[0-9]', regex=True)
+           df['f_vle'] = df['f_vle'].replace('△[0-9]', '-', regex=True)
            df['f1'] = df['f1'].replace('1株', '１株')
            
            #千円の場合100の単位で切り捨て
