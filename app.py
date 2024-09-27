@@ -72,9 +72,9 @@ def main():
 
            col4 , col5 = st.columns(2)
            col4.write("勘定科目群")
-           col4.dataframe(df["f1"], width=100,hide_index=False)
+           col4.dataframe(df["f1"], width=200,hide_index=False)
            col5.write("項目数値群")
-           col5.dataframe(df["f_vle"],  width=100, hide_index=False)
+           col5.dataframe(df["f_vle"],  width=250, hide_index=False)
            
            st.success('変換成功!')
 
