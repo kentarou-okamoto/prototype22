@@ -49,8 +49,8 @@ def main():
            col1, col2 = st.columns(2)
            df_left , df_right = df["f1"], df["f3"]
            
-           col1 = st.write(df_left )
-           col2 = st.write(df_right )
+           col1.write(df_left )
+           col2.write(df_right )
 
 
         
