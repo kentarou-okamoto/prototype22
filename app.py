@@ -45,6 +45,9 @@ def main():
            df = df.dropna(subset=['f3'], axis=0)  #一番右の３列目の値がNoneの行(e.g.文字列Aetc...)を削除
            del df['f2'] #２列目（前年度の数字の列）を削除
            st.table(df)
+
+           st.write(df["f1"])
+
         
 if __name__ == '__main__':
     main()
