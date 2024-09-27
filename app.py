@@ -47,7 +47,7 @@ def main():
            st.table(df)
 
            col1, col2 = st.columns(2)
-           col1 = st.write(df["f1"].values.tolist())
+           col1 = st.write(df["f1"].to_string(index=False))
            col2 = st.write(df["f3"].values.tolist())
 
 
