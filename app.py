@@ -33,8 +33,8 @@ def main():
    with st.form("my_form", clear_on_submit=False):
         text_area = st.text_area('Text Area', sample_text , height=200)
         col1, col2, col3 = st.columns(3)
-        unit = col1.radio("単位", ('百万円', '千円'), horizontal=True)
-        vle_clm = col2.radio("取得する数字列", ('真ん中列', '右列'), horizontal=True)
+        unit = col1.radio("単位", ('百万円', '千円'), index=0, horizontal=True)
+        vle_clm = col2.radio("取得する数字列", ('真ん中列', '右列'), index=1, horizontal=True)
         submitted = col3.form_submit_button("文字列を変換")
      
    if submitted:
