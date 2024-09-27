@@ -51,14 +51,6 @@ def main():
            df = pd.DataFrame( lst1
                             , columns=['f1', 'f2', 'f3'])  #上記リストをデータフレームオブジェクトに変換
 
-           #千円の場合100の単位で切り捨て
-           if unit =='千円':
-           
-              df['f3'] = df['f3'].map(lambda x: x*10 )  
-              
-              #df['f2'] = df['f2'].apply(lambda x: (x/100) )  
-              #df['f3'] = df['f3'].apply(lambda x: (x//100) )  
-
            #列の削除
            if vle_clm =='右列':
               del df['f2']
@@ -69,6 +61,13 @@ def main():
            df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
            df = df.reset_index(drop=True)
            df.index = df.index + 1
+      
+           #千円の場合100の単位で切り捨て
+           if unit =='千円':
+              df[ 'f_vle'] = df['f3'].map(lambda x: x*10 )  
+              
+      
+      
            st.table(df)
 
            col4 , col5 = st.columns(2)
