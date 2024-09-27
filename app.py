@@ -47,7 +47,7 @@ def main():
            st.table(df)
 
            col1, col2 = st.columns(2)
-           df_left , df_right = df["f1"], df["f3"]
+           df_left , df_right = df["f1"], df["f3"].style.hide(axis="index")
            
            col1.write(df_left )
            col2.write(df_right )
