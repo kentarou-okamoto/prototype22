@@ -47,7 +47,9 @@ def main():
            st.table(df)
 
            col1, col2 = st.columns(2)
-           col1 = st.write(df["f1"].style.hide_index())
+           df2 = df["f1"]
+           
+           col1 = st.write(df2.style.hide_index())
            col2 = st.write(df["f3"].values.tolist())
 
 
