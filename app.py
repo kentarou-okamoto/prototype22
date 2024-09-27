@@ -22,8 +22,8 @@ def main():
 
    sample_text = """資産の部
                  　　流動資産
-                 　　　　現金及び預金　　　98,765　　　43,210
-                 　　　　売掛金　　　　　　12,345　　　67,890
+                 　　　現金及び預金　　98,765　　43,210
+                 　　　売掛金　　　　　12,345　　67,890
                  """
 
 
@@ -40,7 +40,7 @@ def main():
    if submitted:
       with st.spinner('processiong...'):
            time.sleep(3)
-           st.write(f"{unit }")
+           st.write( unit )
            st.write(f"{vle_clm  }")
            txt=unicodedata.normalize('NFKC', text_area ) #UNICODE変換：全角を半角に
            s1 =txt.replace(',','')  #数字のカンマを除去
@@ -50,6 +50,9 @@ def main():
 
            df = pd.DataFrame( lst1
                             , columns=['f1', 'f2', 'f3'])  #上記リストをデータフレームオブジェクトに変換
+
+           #df['B'] = df['B'].round(2)
+
            df = df.dropna(subset=['f3'], axis=0)  #一番右の３列目の値がNoneの行(e.g.文字列Aetc...)を削除
            del df['f2'] #２列目（前年度の数字の列）を削除
            
