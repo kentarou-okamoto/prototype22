@@ -46,7 +46,10 @@ def main():
            del df['f2'] #２列目（前年度の数字の列）を削除
            st.table(df)
 
-           st.write(df["f1"])
+           col1, col2 = st.columns(2)
+           col1 = st.write(df["f1"])
+           col2 = st.write(df["f2"])
+
 
         
 if __name__ == '__main__':
