@@ -62,6 +62,10 @@ def main():
            df = df.reset_index(drop=True)
            df.index = df.index + 1
       
+           df['f_vle'] = df['f_vle'].replace('-', '')
+           df['f_vle'] = df['f_vle'].replace('△', '-')
+           df['f1'] = df['f_vle'].replace('1株', '１株')
+           
            #千円の場合100の単位で切り捨て
            if unit =='千円':
               df['f_vle'] = df['f_vle'].astype('int') // 1000
