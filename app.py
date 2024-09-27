@@ -24,12 +24,15 @@ def main():
    # テキストエリア
    with st.form("my_form", clear_on_submit=False):
         text_area = st.text_area('Text Area', sample_text , height=200)
-        submitted = st.form_submit_button("文字列を変換",on_click=hoge(txt))
+        submitted = st.form_submit_button("文字列を変換")
      
    if submitted:
       with st.spinner('processiong...'):
            time.sleep(3)
-           
+           txt=unicodedata.normalize('NFKC', txt) #UNICODE変換：全角を半角に
+           s1 =txt.replace(',','')  #数字のカンマを除去
+           st.write(s1)
+
         
 if __name__ == '__main__':
     main()
