@@ -66,10 +66,9 @@ def main():
            if unit =='千円':
               df['f_vle'] = df['f_vle'].astype('int') // 1000
               
-      #df['f_vle'] = df['f_vle'].map(lambda x: x+2  , na_action='ignore') 
               
       
-           st.table(df)
+           #st.table(df)
 
            col4 , col5 = st.columns(2)
            col4.write("勘定科目群")
@@ -77,7 +76,7 @@ def main():
            col5.write("項目数値群")
            col5.dataframe(df["f_vle"], hide_index=False)
            
-           st.success('Success convert!')
+           st.success('変換成功!')
 
 
         
