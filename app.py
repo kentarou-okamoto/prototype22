@@ -1,10 +1,10 @@
 import streamlit as st
 
-st.title("“ü—ÍƒtƒH[ƒ€")
+st.title("å…¥åŠ›ãƒ•ã‚©ãƒ¼ãƒ ")
 
 
-# ƒeƒLƒXƒg“ü—Íƒ{ƒbƒNƒX
+# ãƒ†ã‚­ã‚¹ãƒˆå…¥åŠ›ãƒœãƒƒã‚¯ã‚¹
 text_input = st.text_input('Input', 'Input some text here.')
-# ƒeƒLƒXƒgƒGƒŠƒA
+# ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒªã‚¢
 text_area = st.text_area('Text Area', 'Input some text here.')
 
