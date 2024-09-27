@@ -24,7 +24,7 @@ def main():
    # テキストエリア
    with st.form("my_form", clear_on_submit=False):
         text_area = st.text_area('Text Area', sample_text , height=200)
-        submitted = st.form_submit_button("文字列を変換",on_click=hoge(txt)
+        submitted = st.form_submit_button("文字列を変換",on_click=hoge(txt))
      
    if submitted:
       with st.spinner('processiong...'):
