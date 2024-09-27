@@ -48,9 +48,9 @@ def main():
            df = df.reset_index(inplace = True)
            st.table(df)
 
-           col1, col2 = st.columns(2)
-           col1.write(df["f1"])
-           col2.dataframe(df["f3"], hide_index=True)
+           #col1, col2 = st.columns(2)
+           #col1.write(df["f1"])
+           #col2.dataframe(df["f3"], hide_index=True)
            
 
 
