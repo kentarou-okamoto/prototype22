@@ -44,11 +44,12 @@ def main():
                             , columns=['f1', 'f2', 'f3'])  #上記リストをデータフレームオブジェクトに変換
            df = df.dropna(subset=['f3'], axis=0)  #一番右の３列目の値がNoneの行(e.g.文字列Aetc...)を削除
            del df['f2'] #２列目（前年度の数字の列）を削除
+           df = df.reset_index(inplace = True)
            st.table(df)
 
            col1, col2 = st.columns(2)
            col1.write(df["f1"], hide_index=True)
-           col2.table(df["f3"], hide_index=True)
+           col2.write(df["f3"], hide_index=True)
            
 
 
