@@ -48,7 +48,7 @@ def main():
 
            col1, col2 = st.columns(2)
            col1.write(df["f1"], hide_index=True)
-           col2.dataframe(df["f3"], hide_index=True)
+           col2.table(df["f3"], hide_index=True)
            
 
 
