@@ -63,20 +63,17 @@ def main():
            df.index = df.index + 1
       
            df['f_vle'] = df['f_vle'].replace('-', '')
-           df['f_vle'] = df['f_vle'].replace('△[0-9]', '-', regex=True)
+           df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
            df['f1'] = df['f1'].replace('1株', '１株')
            
            #千円の場合100の単位で切り捨て
-           if unit =='千円':
-              df['f_vle'] = df['f_vle'].astype('int') // 1000
-              
-              
-      
+           if unit =='千円':df['f_vle'] = df['f_vle'].astype('int') // 1000
+           
            #st.table(df)
 
            col4 , col5 = st.columns(2)
            col4.write("勘定科目群")
-           col4.dataframe(df["f1"], width=350,hide_index=False)
+           col4.dataframe(df["f1"], width=400,hide_index=False)
            col5.write("項目数値群")
            col5.dataframe(df["f_vle"],  width=200, hide_index=False)
            
