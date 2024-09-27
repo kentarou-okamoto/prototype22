@@ -33,13 +33,15 @@ def main():
    with st.form("my_form", clear_on_submit=False):
         text_area = st.text_area('Text Area', sample_text , height=200)
         col1, col2, col3 = st.columns(3)
-        genre = col1.radio("単位", ('百万円', '千円'), horizontal=True)
-        submitted = col2.form_submit_button("文字列を変換")
+        unit = col1.radio("単位", ('百万円', '千円'), horizontal=True)
+        vle_clm = col2.radio("取得する数字列", ('真ん中列', '右列'), horizontal=True)
+        submitted = col3.form_submit_button("文字列を変換")
      
    if submitted:
       with st.spinner('processiong...'):
            time.sleep(3)
-           st.write(f"{genre}")
+           st.write(f"{unit }")
+           st.write(f"{vle_clm  }")
            txt=unicodedata.normalize('NFKC', text_area ) #UNICODE変換：全角を半角に
            s1 =txt.replace(',','')  #数字のカンマを除去
            #st.write(s1)
