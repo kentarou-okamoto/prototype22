@@ -25,11 +25,10 @@ def main():
                  　　　　現金及び預金　　　98,765　　　43,210
                  　　　　売掛金　　　　　　12,345　　　67,890
                  """
-genre = st.radio(
-    "What's your favorite movie genre",
-    ["***百万円***", "千円"],
-    index=None,
-)
+   unit = st.radio(
+             ["***百万円***", "千円"],
+             index=None,
+         )
 
 
 
@@ -37,7 +36,7 @@ genre = st.radio(
    # テキストエリア
    with st.form("my_form", clear_on_submit=False):
         text_area = st.text_area('Text Area', sample_text , height=200)
-        st.write("単位:", genre)
+        st.write("単位:", unit)
         submitted = st.form_submit_button("文字列を変換")
      
    if submitted:
