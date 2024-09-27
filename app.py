@@ -51,11 +51,19 @@ def main():
            df = pd.DataFrame( lst1
                             , columns=['f1', 'f2', 'f3'])  #上記リストをデータフレームオブジェクトに変換
 
-           #df['B'] = df['B'].round(2)
+           #千円の場合100の単位で切り捨て
+           if unit =='千円':
+              df['2'] = df['2'] // 10 
+              df['3'] = df['2'] // 10 
 
-           df = df.dropna(subset=['f3'], axis=0)  #一番右の３列目の値がNoneの行(e.g.文字列Aetc...)を削除
-           del df['f2'] #２列目（前年度の数字の列）を削除
-           
+           #列の削除
+           if vle_clm =='右列':
+              del df['f2']
+           else:
+              del df['f3'] 
+              
+           df.columns = ['f1', 'f_vle' ]
+           df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
            df = df.reset_index(drop=True)
            df.index = df.index + 1
            st.table(df)
@@ -64,7 +72,7 @@ def main():
            col4.write("勘定科目群")
            col4.dataframe(df["f1"], hide_index=False)
            col5.write("項目数値群")
-           col5.dataframe(df["f3"], hide_index=False)
+           col5.dataframe(df["f_vle"], hide_index=False)
            
 
 
