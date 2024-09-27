@@ -7,7 +7,10 @@ import pandas as pd
 def hoge(txt):
     st.write(len(txt))
 
-
+def fn_hoge(i):
+   x = re.split(" +", i) #半角スペースで分割
+   if x[0]=='': x.pop(0)   # 先頭のスペース群 ''を除去
+   return x
     
 def main():
    
@@ -33,8 +36,15 @@ def main():
            time.sleep(3)
            txt=unicodedata.normalize('NFKC', text_area ) #UNICODE変換：全角を半角に
            s1 =txt.replace(',','')  #数字のカンマを除去
-           st.write(s1)
+           #st.write(s1)
+           lst =s1.splitlines()  
+           lst1=[fn_hoge(i) for i in lst]  #上記リスト(行単位)で１行ずつ中の項目をリスト化
 
+           df = pd.DataFrame( lst1
+                            , columns=['f1', 'f2', 'f3'])  #上記リストをデータフレームオブジェクトに変換
+           df = df.dropna(subset=['f3'], axis=0)  #一番右の３列目の値がNoneの行(e.g.文字列Aetc...)を削除
+           del df['f2'] #２列目（前年度の数字の列）を削除
+           st.dataframe(df)
         
 if __name__ == '__main__':
     main()
