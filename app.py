@@ -53,8 +53,8 @@ def main():
 
            #千円の場合100の単位で切り捨て
            if unit =='千円':
-              df['2'] = df['f2'].apply(lambda x: x // 10)  
-              df['3'] = df['f3'].apply(lambda x: x // 10)  
+              df['2'] = df['f2'].apply(lambda x: (x//10) )  
+              df['3'] = df['f3'].apply(lambda x: (x//10) )  
 
            #列の削除
            if vle_clm =='右列':
