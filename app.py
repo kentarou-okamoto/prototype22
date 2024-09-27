@@ -49,7 +49,7 @@ def main():
            col1, col2 = st.columns(2)
            #df2 = df["f1"]
            
-           col1 = st.write(df["f1"].hide(axis=“index”) )
+           col1 = st.write(df["f1"].hide(axis="index") )
            col2 = st.write(df["f3"].values.tolist())
 
 
