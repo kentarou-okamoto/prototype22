@@ -15,7 +15,7 @@ sample_text = """資産の部
 
 # テキストエリア
 with st.form("my_form", clear_on_submit=False):
-     text_area = st.text_area('Text Area', sample_text)
+     text_area = st.text_area('Text Area', sample_text , height=None)
      submitted = st.form_submit_button("文字列を変換")
      
      
