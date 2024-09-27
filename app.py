@@ -40,8 +40,8 @@ def main():
    if submitted:
       with st.spinner('processiong...'):
            time.sleep(3)
-           st.write( unit )
-           st.write(f"{vle_clm  }")
+           #st.write( unit )
+           #st.write(f"{vle_clm  }")
            txt=unicodedata.normalize('NFKC', text_area ) #UNICODE変換：全角を半角に
            s1 =txt.replace(',','')  #数字のカンマを除去
            #st.write(s1)
@@ -76,7 +76,7 @@ def main():
            col5.write("項目数値群")
            col5.dataframe(df["f_vle"], hide_index=False)
            
-           st.success('変換成功!')
+           st.success('変換成功!', icon="Check")
 
 
         
