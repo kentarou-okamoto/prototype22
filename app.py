@@ -47,10 +47,10 @@ def main():
            st.table(df)
 
            col1, col2 = st.columns(2)
-           df2 = df["f1"]
+           df_left , df_right = df["f1"], df["f3"]
            
-           col1 = st.write(df2 )
-           col2 = st.write(df["f3"].values.tolist())
+           col1 = st.write(df_left )
+           col2 = st.write(df_right )
 
 
         
