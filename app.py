@@ -76,7 +76,7 @@ def main():
            col5.write("項目数値群")
            col5.dataframe(df["f_vle"], hide_index=False)
            
-           st.success('変換成功!', icon="Check")
+           st.success('変換成功!')
 
 
         
