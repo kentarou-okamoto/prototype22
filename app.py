@@ -10,6 +10,8 @@ def hoge(txt):
 def fn_hoge(i):
    x = re.split(" +", i) #半角スペースで分割
    if x[0]=='': x.pop(0)   # 先頭のスペース群 ''を除去
+   y=len(x)
+   print(y)
    return x
     
 def main():
