@@ -76,6 +76,8 @@ def main():
               time.sleep(1)
               if x==3:
                  del df['f2']
+                 
+           st.table(df)
               
            df.columns = ['f1', 'f_vle' ]
            df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
