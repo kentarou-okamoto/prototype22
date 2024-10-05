@@ -66,8 +66,8 @@ def main():
            #数字列の整形:ダーシ/△/カッコ
            df['f_vle'] = df['f_vle'].replace('-', '')
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
-           df['f_vle'] = df['f_vle'].replace('(', '-', regex=True)
-           df['f_vle'] = df['f_vle'].replace(')', '', regex=True)
+           #df['f_vle'] = df['f_vle'].replace('(', '-')
+           #df['f_vle'] = df['f_vle'].replace(')', '')
            
            #科目列の整形:1株/1年etc...
            df['f1'] = df['f1'].replace('1株', '１株')
