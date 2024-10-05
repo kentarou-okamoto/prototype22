@@ -60,8 +60,8 @@ def main():
               clist=['f1', 'f2', 'f3']
 
            #上記リスト[lst1]をデータフレームオブジェクトに変換
-           df = pd.DataFrame( lst1
-                      , columns=clist)  
+           df = pd.DataFrame( lst1)
+           df =df.rename(clist)  
 
            #列の削除
            if vle_clm =='右列':
