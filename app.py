@@ -74,6 +74,7 @@ def main():
               del df['f3'] 
            else:
               time.sleep(1)
+              if x==3:
                  del df['f2']
               
            df.columns = ['f1', 'f_vle' ]
