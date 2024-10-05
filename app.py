@@ -35,7 +35,7 @@ def main():
         col1, col2, col3 = st.columns(3)
         unit = col1.radio("単位", ('百万円', '千円'), index=0, horizontal=True)
         vle_clm = col2.radio("取得する数字列", ('真ん中列', '右列'), index=1, horizontal=True)
-        oo = st.checkbox("'1列のみ[削除しない]")
+        oocb = st.checkbox("'1列のみ[削除しない]")
         submitted = col3.form_submit_button("文字列を変換")
      
    if submitted:
@@ -53,10 +53,10 @@ def main():
 
            #上記リスト[lst1]をデータフレームオブジェクトに変換
            df = pd.DataFrame( lst1)
-           x = df.shape[1]
+           x = df.shape[1] #列数の取得
 
            #列リストの設定
-           if vle_clm =='1列のみ[削除しない]' and x==2:
+           if oocb and x==2:
               clist=['f1', 'f2']
            else:
               clist=['f1', 'f2', 'f3']
@@ -65,7 +65,7 @@ def main():
            df.columns =clist  
 
            #列の削除
-           if oo:
+           if oocb:
               time.sleep(1)
               if x==3:
                  del df['f2']
