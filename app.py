@@ -44,6 +44,7 @@ def main():
            #st.write(f"{vle_clm  }")
            txt=unicodedata.normalize('NFKC', text_area ) #UNICODE変換：全角を半角に
            s1 =txt.replace(',','')  #数字のカンマを除去
+           s1= re.sub(r'※\d+', '', s1) #注釈マークをトル
            #st.write(s1)
            lst =s1.splitlines()  
            lst1=[fn_hoge(i) for i in lst]  #上記リスト(行単位)で１行ずつ中の項目をリスト化
@@ -62,9 +63,15 @@ def main():
            df = df.reset_index(drop=True)
            df.index = df.index + 1
       
+           #数字列の整形:ダーシ/△/カッコ
            df['f_vle'] = df['f_vle'].replace('-', '')
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
+           df['f_vle'] = df['f_vle'].replace('(', '-', regex=True)
+           df['f_vle'] = df['f_vle'].replace(')', '', regex=True)
+           
+           #科目列の整形:1株/1年etc...
            df['f1'] = df['f1'].replace('1株', '１株')
+           df['f1'] = df['f1'].replace('1年', '１年')
            
            #千円の場合100の単位で切り捨て
            if unit =='千円':df['f_vle'] = df['f_vle'].astype('int') // 1000
