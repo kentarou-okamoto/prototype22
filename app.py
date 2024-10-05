@@ -51,10 +51,6 @@ def main():
            lst1=[fn_hoge(i) for i in lst]  #上記リスト(行単位)で１行ずつ中の項目をリスト化
 
 
-           y=lst1[0]
-           print(y)
-
-
            #上記リスト[lst1]をデータフレームオブジェクトに変換
            df = pd.DataFrame( lst1)
            x = df.shape[1]
@@ -80,7 +76,8 @@ def main():
               else:
                  del df['f3'] 
                  
-           #st.table(df)
+           #
+           st.table(df)
               
            df.columns = ['f1', 'f_vle' ]
            df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
