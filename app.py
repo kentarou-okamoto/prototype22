@@ -49,8 +49,15 @@ def main():
            lst =s1.splitlines()  
            lst1=[fn_hoge(i) for i in lst]  #上記リスト(行単位)で１行ずつ中の項目をリスト化
 
+           #列リストの設定
+           if vle_clm =='1列のみ[削除しない]':
+              clist=['f1', 'f2']
+           else:
+              clist=['f1', 'f2', 'f3']
+
+           #上記リスト[lst1]をデータフレームオブジェクトに変換
            df = pd.DataFrame( lst1
-                            , columns=['f1', 'f2', 'f3'])  #上記リストをデータフレームオブジェクトに変換
+                      , columns=clist)  
 
            #列の削除
            if vle_clm =='右列':
@@ -59,9 +66,9 @@ def main():
               del df['f3'] 
            else:
               time.sleep(1)
-              #x = print(df.shape[1])
-              #if x==3:
-              #   del df['f2']
+              x = print(df.shape[1])
+              if x==3:
+                 del df['f2']
               
            df.columns = ['f1', 'f_vle' ]
            df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
