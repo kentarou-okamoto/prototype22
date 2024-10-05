@@ -76,8 +76,7 @@ def main():
               else:
                  del df['f3'] 
                  
-           #
-           st.table(df)
+           #st.table(df)
               
            df.columns = ['f1', 'f_vle' ]
            df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
