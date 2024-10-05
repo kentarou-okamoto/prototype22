@@ -77,7 +77,7 @@ def main():
            else:
               if vle_clm =='右列':
                  del df['f2']
-              else
+              else:
                  del df['f3'] 
                  
            #st.table(df)
