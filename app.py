@@ -56,7 +56,7 @@ def main():
 
            #上記リスト[lst1]をデータフレームオブジェクトに変換
            df = pd.DataFrame( lst1)
-           x = print(df.shape[1])
+           x = df.shape[1]
 
            #列リストの設定
            if vle_clm =='1列のみ[削除しない]' and x==2:
