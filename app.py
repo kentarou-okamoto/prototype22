@@ -53,14 +53,18 @@ def main():
            y=lst1[0]
            print(y)
 
+
+           #上記リスト[lst1]をデータフレームオブジェクトに変換
+           df = pd.DataFrame( lst1)
+           x = print(df.shape[1])
+
            #列リストの設定
-           if vle_clm =='1列のみ[削除しない]':
+           if vle_clm =='1列のみ[削除しない]' and x==2:
               clist=['f1', 'f2']
            else:
               clist=['f1', 'f2', 'f3']
 
-           #上記リスト[lst1]をデータフレームオブジェクトに変換
-           df = pd.DataFrame( lst1)
+
            df.columns =clist  
 
            #列の削除
@@ -70,8 +74,6 @@ def main():
               del df['f3'] 
            else:
               time.sleep(1)
-              x = print(df.shape[1])
-              if x==3:
                  del df['f2']
               
            df.columns = ['f1', 'f_vle' ]
