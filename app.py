@@ -34,7 +34,7 @@ def main():
         text_area = st.text_area('Text Area', sample_text , height=200)
         col1, col2, col3 = st.columns(3)
         unit = col1.radio("単位", ('百万円', '千円'), index=0, horizontal=True)
-        vle_clm = col2.radio("取得する数字列", ('真ん中列', '右列'), index=1, horizontal=True)
+        vle_clm = col2.radio("取得する数字列", ('真ん中列', '右列', '1列のみ[削除しない]'), index=1, horizontal=True)
         submitted = col3.form_submit_button("文字列を変換")
      
    if submitted:
@@ -55,8 +55,12 @@ def main():
            #列の削除
            if vle_clm =='右列':
               del df['f2']
-           else:
+           elif vle_clm =='真ん中列':
               del df['f3'] 
+           else:
+              time.sleep(1)
+              x = print(df.shape[1])
+              if x==3: del df['f2']
               
            df.columns = ['f1', 'f_vle' ]
            df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
