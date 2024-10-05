@@ -10,8 +10,6 @@ def hoge(txt):
 def fn_hoge(i):
    x = re.split(" +", i) #半角スペースで分割
    if x[0]=='': x.pop(0)   # 先頭のスペース群 ''を除去
-   y=len(x)
-   print(y)
    return x
     
 def main():
@@ -50,6 +48,10 @@ def main():
            #st.write(s1)
            lst =s1.splitlines()  
            lst1=[fn_hoge(i) for i in lst]  #上記リスト(行単位)で１行ずつ中の項目をリスト化
+
+
+           y=lst1[0]
+           print(y)
 
            #列リストの設定
            if vle_clm =='1列のみ[削除しない]':
