@@ -93,16 +93,17 @@ def main():
            df = df.reset_index(drop=True)
            df.index = df.index + 1
       
+           #数字列の整形:ダーシ/△/カッコ
+           df['f_vle'] = df['f_vle'].replace('-', '')
+           df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
+           #df['f_vle'] = df['f_vle'].replace('(', '-')
+           #df['f_vle'] = df['f_vle'].replace(')', '')
       
            #千円の場合100の単位で切り捨て
            if unit =='千円':
               df['f_vle'] = df['f_vle'].astype('int').apply(fn_devdev)
               
-           #数字列の整形:ダーシ/△/カッコ
-           df['f_vle'] = df['f_vle'].replace('-', '-0')
-           df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
-           #df['f_vle'] = df['f_vle'].replace('(', '-')
-           #df['f_vle'] = df['f_vle'].replace(')', '')
+           df['f_vle'] = df['f_vle'].replace('', '-0')
            
            #科目列の整形:1株/1年etc...
            df['f1'] = df['f1'].replace('1年', '１年', regex=True)
