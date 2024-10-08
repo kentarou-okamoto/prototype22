@@ -101,9 +101,9 @@ def main():
       
            #千円の場合100の単位で切り捨て
            if unit =='千円':
-              df['f_vle'] = df['f_vle'].astype('nan').apply(fn_devdev)
+              df['f_vle'] = df['f_vle'].astype('int').apply(fn_devdev)
               
-           df['f_vle'] = df['f_vle'].replace('', '-0')
+           df['f_vle'] = df['f_vle'].replace('nan', '-0')
            
            #科目列の整形:1株/1年etc...
            df['f1'] = df['f1'].replace('1年', '１年', regex=True)
