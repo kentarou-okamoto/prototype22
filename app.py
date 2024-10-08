@@ -19,8 +19,11 @@ def fn_devdev(x):
       y = x
     elif x=='-': #ダーシ[-]は処理せず
       y = x
-    else:
+    elif x.isnumeric():
       y = x // 1000 #1000で割った商を返す
+    else:
+      y = x
+
     return y
 
 #主処理
@@ -101,7 +104,7 @@ def main():
       
            #千円の場合100の単位で切り捨て
            if unit =='千円':
-              df['f_vle'] = df['f_vle'].apply(fn_devdev)
+              df['f_vle'] = df['f_vle'].int.apply(fn_devdev)
               
            df['f_vle'] = df['f_vle'].replace('nan', '-0')
            
