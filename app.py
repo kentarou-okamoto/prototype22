@@ -20,7 +20,7 @@ def fn_devdev(x):
     elif x=='-': #ダーシ[-]は処理せず
       y = x
     elif x.isnumeric():
-      y = x // 1000 #1000で割った商を返す
+      y = x // 1000
     else:
       y = x
 
