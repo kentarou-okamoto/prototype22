@@ -13,13 +13,17 @@ def fn_hoge(i):
    return x
     
 
+#1000で割り算する関数
 def fn_devdev(x):
-    if x == 0:
+    if x == 0:  #ゼロ除算回避IF文
+      y = x
+    elif x=='-': #ダーシ[-]は処理せず
       y = x
     else:
-      y = x // 1000
-    return x
-    
+      y = x // 1000 #1000で割った商を返す
+    return y
+
+#主処理
 def main():
    
    st.header('入力フォーム')
@@ -34,9 +38,6 @@ def main():
                  　　　売掛金　　　　　12,345　　67,890
                  """
 
-
-
-
    # テキストエリア
    with st.form("my_form", clear_on_submit=False):
         text_area = st.text_area('Text Area', sample_text , height=200)
@@ -45,7 +46,8 @@ def main():
         vle_clm = col2.radio("取得する数字列", ('真ん中列', '右列'), index=1, horizontal=True)
         oocb = col3.checkbox("'1列のみ[削除しない]")
         submitted = col3.form_submit_button("文字列を変換")
-     
+
+   # ボタン押下時
    if submitted:
       with st.spinner('processiong...'):
            time.sleep(3)
@@ -69,16 +71,15 @@ def main():
               clist=['f1', 'f2']
            else:
               clist=['f1', 'f2', 'f3']
-
-
            df.columns =clist  
 
            #列の削除
            if oocb:
-              time.sleep(1)
               if x==3:
                  del df['f2']
                  st.warning('1列のみを選択したのに数字列が２列あり!⇒右列を取得します')
+              else: 
+                 time.sleep(1)
            else:
               if vle_clm =='右列':
                  del df['f2']
@@ -92,8 +93,13 @@ def main():
            df = df.reset_index(drop=True)
            df.index = df.index + 1
       
+      
+           #千円の場合100の単位で切り捨て
+           if unit =='千円':
+              df['f_vle'] = df['f_vle'].astype('int').apply(fn_devdev)
+              
            #数字列の整形:ダーシ/△/カッコ
-           df['f_vle'] = df['f_vle'].replace('-', '')
+           df['f_vle'] = df['f_vle'].replace('-', '-0')
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
            #df['f_vle'] = df['f_vle'].replace('(', '-')
            #df['f_vle'] = df['f_vle'].replace(')', '')
@@ -105,9 +111,6 @@ def main():
            df['f1'] = df['f1'].replace('\)', '）', regex=True)
            
            
-           #千円の場合100の単位で切り捨て
-           if unit =='千円':
-              df['f_vle'] = df['f_vle'].astype('int').apply(fn_devdev)
  
            
            st.table(df)
