@@ -12,6 +12,14 @@ def fn_hoge(i):
    if x[0]=='': x.pop(0)   # 先頭のスペース群 ''を除去
    return x
     
+
+def fn_devdev(x):
+    if x == 0:
+      y = x
+    else:
+      y = x // 1000
+    return x
+    
 def main():
    
    st.header('入力フォーム')
@@ -45,7 +53,8 @@ def main():
            #st.write(f"{vle_clm  }")
            txt=unicodedata.normalize('NFKC', text_area ) #UNICODE変換：全角を半角に
            s1 =txt.replace(',','')  #数字のカンマを除去
-           s1= re.sub(r'※\d+', '', s1) #注釈マークをトル
+           s1= re.sub(r'※\d+', '', s1) #注釈マーク+数字をトル
+           s1= re.sub(r'※', '', s1) #注釈マークをトル
            #st.write(s1)
            lst =s1.splitlines()  
            lst1=[fn_hoge(i) for i in lst]  #上記リスト(行単位)で１行ずつ中の項目をリスト化
@@ -97,7 +106,9 @@ def main():
            
            
            #千円の場合100の単位で切り捨て
-           if unit =='千円':df['f_vle'] = df['f_vle'].astype('int') // 1000
+           if unit =='千円':
+              df['f_vle'] = df['f_vle'].astype('int').apply(fn_devdev)
+ 
            
            st.table(df)
 
