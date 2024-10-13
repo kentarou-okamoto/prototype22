@@ -98,7 +98,7 @@ def main():
            df.index = df.index + 1
       
            #数字列の整形:ダーシ/△/カッコ
-           df['f_vle'] = df['f_vle'].replace('-', 'NaN')
+           df['f_vle'] = df['f_vle'].replace('-', 'nan')
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
            #df['f_vle'] = df['f_vle'].replace('(', '-')
            #df['f_vle'] = df['f_vle'].replace(')', '')
