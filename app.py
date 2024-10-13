@@ -22,7 +22,7 @@ def fn_devdev(x):
     elif x=='-':
       y = x
     else:
-      x =int x)
+      x =int(x)
       y = x // 1000)
 
     return y
