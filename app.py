@@ -17,7 +17,7 @@ def fn_hoge(i):
 def fn_devdev(x):
     if x == 0:  #ゼロ除算回避IF文
       y = x
-    elif type(x) is str:
+    elif x=='-':
       y = x
     else:
       y = x // 1000
