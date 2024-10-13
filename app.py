@@ -20,7 +20,7 @@ def fn_devdev(x):
     elif x=='nan':
       y = x
     elif x=='-':
-      y = x
+      y = NaN
     else:
       y = int( x / 1000)
 
