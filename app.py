@@ -19,7 +19,7 @@ def fn_devdev(x):
       y = x
     elif x=='dash':
       y = x
-    elif x=='-':
+    elif x=='―':
       y = x
     else:
       x =int(x)
@@ -90,7 +90,7 @@ def main():
               else:
                  del df['f3'] 
                  
-           st.table(df)
+           #st.table(df)
               
            df.columns = ['f1', 'f_vle' ]
            df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
@@ -99,6 +99,7 @@ def main():
       
            #数字列の整形:ダーシ/△/カッコ
            df['f_vle'] = df['f_vle'].replace('-', 'dash')
+           df['f_vle'] = df['f_vle'].replace('―', 'dash')
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
            #df['f_vle'] = df['f_vle'].replace('(', '-')
            #df['f_vle'] = df['f_vle'].replace(')', '')
