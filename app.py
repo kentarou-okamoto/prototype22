@@ -19,6 +19,8 @@ def fn_devdev(x):
       y = x
     elif x=='nan':
       y = x
+    elif x=='-':
+      y = x
     else:
       y = x // 1000
 
