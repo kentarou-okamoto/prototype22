@@ -23,7 +23,7 @@ def fn_devdev(x):
       y = x
     else:
       x =int(x)
-      y = x // 1000)
+      y = x // 1000
 
     return y
 
