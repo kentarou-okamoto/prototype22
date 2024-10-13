@@ -17,7 +17,7 @@ def fn_hoge(i):
 def fn_devdev(x):
     if x == 0:  #ゼロ除算回避IF文
       y = x
-    elif x=='nan':
+    elif x=='dash':
       y = x
     elif x=='-':
       y = x
@@ -98,7 +98,7 @@ def main():
            df.index = df.index + 1
       
            #数字列の整形:ダーシ/△/カッコ
-           df['f_vle'] = df['f_vle'].replace('-', 'nan')
+           df['f_vle'] = df['f_vle'].replace('-', 'dash')
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
            #df['f_vle'] = df['f_vle'].replace('(', '-')
            #df['f_vle'] = df['f_vle'].replace(')', '')
@@ -107,7 +107,7 @@ def main():
            if unit =='千円':
               df['f_vle'] = df['f_vle'].astype(int , errors='ignore').apply(fn_devdev)
               
-           df['f_vle'] = df['f_vle'].replace('nan', '-0')
+           #df['f_vle'] = df['f_vle'].replace('dash', '-0')
            
            #科目列の整形:1株/1年etc...
            df['f1'] = df['f1'].replace('1年', '１年', regex=True)
