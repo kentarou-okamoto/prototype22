@@ -104,10 +104,12 @@ def main():
            df['f_vle'] = df['f_vle'].replace('―', 'dash')
            df['f_vle'] = df['f_vle'].replace(' ', '', regex=True)
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
-           #df['f_vle'] = df['f_vle'].replace('(', '-')
-           #df['f_vle'] = df['f_vle'].replace(')', '')
-           #df['f_vle'] = df['f_vle'].replace('、', '')
+           df['f_vle'] = df['f_vle'].replace('、', '', regex=True)  #読点変換
+           df['f_vle'] = df['f_vle'].replace('-1', '0', regex=True) #-1はゼロに置き換え
       
+      #df['f_vle'] = df['f_vle'].replace('(', '-')
+           #df['f_vle'] = df['f_vle'].replace(')', '')
+           
            #千円の場合100の単位で切り捨て
            if unit =='千円':
               df['f_vle'] = df['f_vle'].astype(int , errors='ignore').apply(fn_devdev)
