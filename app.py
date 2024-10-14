@@ -62,7 +62,7 @@ def main():
            s1= re.sub(r'※\d+', '', s1) #注釈マーク+数字をトル
            s1= re.sub(r'※', '', s1) #注釈マークをトル
            s1= re.sub(r'△ ', '△', s1) #△+半角スペース
-           s1= re.sub(r'\ (\', '(', s1) #半角スペース+カッコ
+           s1= re.sub(r'\ (\', '\(\', s1) #半角スペース+カッコ
            #st.write(s1)
            lst =s1.splitlines()  
            lst1=[fn_hoge(i) for i in lst]  #上記リスト(行単位)で１行ずつ中の項目をリスト化
