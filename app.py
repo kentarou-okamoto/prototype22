@@ -122,7 +122,7 @@ def main():
            df['f1'] = df['f1'].replace('1株', '１株', regex=True)
            df['f1'] = df['f1'].replace('\(', '（', regex=True)
            df['f1'] = df['f1'].replace('\)', '）', regex=True)
-           
+           df['f1'] = df['f1'].replace("\r", "",regex=True)
            
  
            
