@@ -23,7 +23,7 @@ def fn_devdev(x):
       y = x
     else:
       x =int(x)
-      y = x // 1000
+      y =int( x / 1000)
       if y==-1:y=0
 
     return y
@@ -96,6 +96,9 @@ def main():
            #st.table(df)
               
            df.columns = ['f1', 'f_vle' ]
+
+           mx = df['f1'].str.len().max()
+
            df = df.dropna(subset=['f_vle'], axis=0)  #f_vle列の値がNoneの行(e.g.文字列Aetc...)を削除
            df = df.reset_index(drop=True)
            df.index = df.index + 1
@@ -122,7 +125,6 @@ def main():
            df['f1'] = df['f1'].replace('1株', '１株', regex=True)
            df['f1'] = df['f1'].replace('\(', '（', regex=True)
            df['f1'] = df['f1'].replace('\)', '）', regex=True)
-           df['f1'] = df['f1'].replace("\r", "",regex=True)
            
  
            
@@ -135,6 +137,7 @@ def main():
            col5.dataframe(df["f_vle"],  width=200, hide_index=False)
            
            st.success('変換成功!')
+           st.success(mx)
 
 
         
