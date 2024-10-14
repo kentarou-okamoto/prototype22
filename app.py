@@ -126,8 +126,8 @@ def main():
            df['f1'] = df['f1'].replace('\(', '（', regex=True)
            df['f1'] = df['f1'].replace('\)', '）', regex=True)
            
- 
-           
+           if mx>20:
+              st.warning('科目文字列数が20文字以上のものあり'+ str(mx) +'⇒途中で改行されているか確認を！')
            st.table(df)
 
            col4 , col5 = st.columns(2)
@@ -137,7 +137,9 @@ def main():
            col5.dataframe(df["f_vle"],  width=200, hide_index=False)
            
            st.success('変換成功!')
-           st.success(mx)
+           
+           
+           
 
 
         
