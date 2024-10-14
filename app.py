@@ -127,7 +127,7 @@ def main():
            df['f1'] = df['f1'].replace('\)', '）', regex=True)
            
            if mx>20:
-              st.warning('科目文字列数が20文字以上のものあり'+ str(mx) +'⇒途中で改行されているか確認を！')
+              st.warning('科目文字列数が20文字以上のものあり[文字数:'+ str(mx) +']')
            st.table(df)
 
            col4 , col5 = st.columns(2)
