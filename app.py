@@ -97,12 +97,14 @@ def main():
            df = df.reset_index(drop=True)
            df.index = df.index + 1
       
-           #数字列の整形:ダーシ/△/カッコ
+           #数字列の整形:ダーシ/△/カッコ/読点
            df['f_vle'] = df['f_vle'].replace('-', 'dash')
            df['f_vle'] = df['f_vle'].replace('―', 'dash')
+           df['f_vle'] = df['f_vle'].replace(' ', '', regex=True)
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
            #df['f_vle'] = df['f_vle'].replace('(', '-')
            #df['f_vle'] = df['f_vle'].replace(')', '')
+           #df['f_vle'] = df['f_vle'].replace('、', '')
       
            #千円の場合100の単位で切り捨て
            if unit =='千円':
@@ -115,6 +117,7 @@ def main():
            df['f1'] = df['f1'].replace('1株', '１株', regex=True)
            df['f1'] = df['f1'].replace('\(', '（', regex=True)
            df['f1'] = df['f1'].replace('\)', '）', regex=True)
+           df['f1'] = df['f1'].replace(' (', '（', regex=True)
            
            
  
