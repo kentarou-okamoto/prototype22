@@ -24,7 +24,7 @@ def fn_devdev(x):
     else:
       x =int(x)
       y = x // 1000
-      if y=-1:y=0
+      if y==-1:y=0
 
     return y
 
