@@ -105,7 +105,6 @@ def main():
            df['f_vle'] = df['f_vle'].replace(' ', '', regex=True)
            df['f_vle'] = df['f_vle'].replace('△', '-', regex=True)
            df['f_vle'] = df['f_vle'].replace('、', '', regex=True)  #読点変換
-           df['f_vle'] = df['f_vle'].replace('-1', '0', regex=True) #-1はゼロに置き換え
       
       #df['f_vle'] = df['f_vle'].replace('(', '-')
            #df['f_vle'] = df['f_vle'].replace(')', '')
@@ -115,6 +114,7 @@ def main():
               df['f_vle'] = df['f_vle'].astype(int , errors='ignore').apply(fn_devdev)
               
            #df['f_vle'] = df['f_vle'].replace('dash', '-0')
+           df['f_vle'] = df['f_vle'].replace('-1', '0', regex=True) #-1はゼロに置き換え
            
            #科目列の整形:1株/1年etc...
            df['f1'] = df['f1'].replace(' ','', regex=True)
