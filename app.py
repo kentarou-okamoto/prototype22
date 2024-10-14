@@ -24,6 +24,7 @@ def fn_devdev(x):
     else:
       x =int(x)
       y = x // 1000
+      if y=-1:y=0
 
     return y
 
@@ -114,7 +115,6 @@ def main():
               df['f_vle'] = df['f_vle'].astype(int , errors='ignore').apply(fn_devdev)
               
            #df['f_vle'] = df['f_vle'].replace('dash', '-0')
-           df['f_vle'] = df['f_vle'].replace('-1', '0', regex=True) #-1はゼロに置き換え
            
            #科目列の整形:1株/1年etc...
            df['f1'] = df['f1'].replace(' ','', regex=True)
